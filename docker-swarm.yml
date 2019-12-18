@@ -1,0 +1,20 @@
+version: "3.6"
+services:
+  web:
+    image: registry.nepeat.com/hellsite:latest
+    networks:
+      - publicweb
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.port=80
+        - traefik.docker.network=publicweb
+        # Routes
+        - traefik.frontend.rule=Host:chaos.generalprogramming.org
+      restart_policy:
+        condition: any
+
+networks:
+  publicweb:
+    driver: overlay
+    external: true
