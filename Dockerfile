@@ -10,6 +10,6 @@ EXPOSE 80
 STOPSIGNAL SIGTERM
 WORKDIR /app
 
-COPY ../ .
+COPY app/ .
 
 CMD ["nginx", "-g", "daemon off;"]
