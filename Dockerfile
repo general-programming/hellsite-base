@@ -10,6 +10,6 @@ EXPOSE 80
 STOPSIGNAL SIGTERM
 WORKDIR /app
 
-RUN git clone https://github.com/general-programming/a-chaotic-one.git .
+COPY ../ .
 
 CMD ["nginx", "-g", "daemon off;"]
